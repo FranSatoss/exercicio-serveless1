@@ -1,36 +1,52 @@
-# Deploy de Função Serverless
+# Checkpoint 2 - Arquitetura Event-Driven com Azure Functions
 
-## Descrição
+Projeto desenvolvido utilizando arquitetura orientada a eventos (Event-Driven) com Azure Functions e Azure Service Bus.
 
-Foi desenvolvida uma função serverless utilizando Azure Functions com HTTP Trigger. A função responde a requisições HTTP e retorna uma resposta em formato JSON.
+A função ProcessOrder é acionada automaticamente quando uma mensagem é publicada no tópico "orders", realizando o processamento do evento recebido.
 
-## Repositório
+## Provedor Utilizado
 
-https://github.com/FranSatoss/exercicio-serveless1
+* Azure
 
-## URL da Função
+## Como rodar localmente
 
-https://funcfrancine20260811a.azurewebsites.net/api/HelloWorld
+### Pre-requisitos
 
-## Como Executar
+* Node.js instalado (versão 18 ou superior)
+* Azure Functions Core Tools
+* Git instalado
+* Terminal de comandos aberto
 
-Acesse a URL da função pelo navegador ou execute:
+### Passo a passo
 
-curl https://funcfrancine20260811a.azurewebsites.net/api/HelloWorld
+1. Clone o repositório para sua máquina:
 
-## Exemplo de Resposta
+```bash
+git clone https://github.com/FranSatoss/exercicio-serveless1.git
+```
 
-{
-  "mensagem": "Olá Mundo!",
-  "aluna": "Francine dos Santos",
-  "status": "Funcionando"
-}
+2. Entre na pasta do projeto:
 
-## Tecnologias Utilizadas
+```bash
+cd exercicio-serveless1
+```
 
-- Microsoft Azure
-- Azure Functions
-- Node.js
-- Azure Storage Account
-- HTTP Trigger
-  
+3. Instale as dependências do projeto:
+
+```bash
+npm install
+```
+
+4. Configure o arquivo local.settings.json com as credenciais do Azure Service Bus e Azure Functions.
+
+5. Execute a Function localmente:
+
+```bash
+func start
+```
+
+6. Para enviar uma mensagem de teste para o tópico:
+
+```bash
+node send-message.js
+```
