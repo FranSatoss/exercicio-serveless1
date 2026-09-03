@@ -1,8 +1,8 @@
-# Checkpoint 2 - Arquitetura Event-Driven com Azure Functions
+# Checkpoint 3 - Orquestração de Serviços com Azure Functions
 
-Projeto desenvolvido utilizando arquitetura orientada a eventos (Event-Driven) com Azure Functions e Azure Service Bus.
+Projeto desenvolvido utilizando Azure Functions, Azure Service Bus e Azure Logic Apps para implementação de uma arquitetura orientada a eventos com orquestração de serviços.
 
-A função ProcessOrder é acionada automaticamente quando uma mensagem é publicada no tópico "orders", realizando o processamento do evento recebido.
+O workflow realiza a integração entre funções serverless e mensageria, permitindo a execução coordenada dos componentes da aplicação.
 
 ## Provedor Utilizado
 
@@ -13,8 +13,7 @@ A função ProcessOrder é acionada automaticamente quando uma mensagem é publi
 ### Pre-requisitos
 
 * Node.js instalado (versão 18 ou superior)
-* Azure Functions Core Tools
-* Git instalado
+* Azure Functions Core Tools instalados
 * Terminal de comandos aberto
 
 ### Passo a passo
@@ -37,15 +36,15 @@ cd exercicio-serveless1
 npm install
 ```
 
-4. Configure o arquivo local.settings.json com as credenciais do Azure Service Bus e Azure Functions.
+4. Configure o arquivo `local.settings.json` com as configurações do ambiente Azure.
 
-5. Execute a Function localmente:
+5. Inicie a aplicação localmente:
 
 ```bash
 func start
 ```
 
-6. Para enviar uma mensagem de teste para o tópico:
+6. Para testar o envio de eventos:
 
 ```bash
 node send-message.js
